@@ -1,0 +1,1 @@
+CleanMax website for GitHub Pages. Upload index.html and distributor.html to the repository root. The landing page Distributor Login button opens distributor.html. Distributor portal supports IDs CM-MH-0188844, CM-D001, and CM-D002.

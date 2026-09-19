@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CleanMax Distributor Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16221D; --paper:#F7F8F4; --paper-raised:#FFFFFF;
+    --primary:#1F6E4B; --primary-dark:#123825; --accent:#2C6E8C; --line:#D9DED6;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EAF0EC; --paper:#0F1712; --paper-raised:#16221C;
+      --primary:#4FAE81; --primary-dark:#2E7A54; --accent:#6FB2D2; --line:#263229;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EAF0EC; --paper:#0F1712; --paper-raised:#16221C;
+    --primary:#4FAE81; --primary-dark:#2E7A54; --accent:#6FB2D2; --line:#263229;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px; margin:0 auto; padding:2.5rem 1.25rem 4rem;}
+  h1,h2{font-family:"Fraunces", Georgia, serif; font-weight:600; margin:0;}
+  h1{font-size:clamp(1.6rem,5vw,2rem); letter-spacing:-0.01em;}
+  h2{font-size:1.05rem; margin-bottom:0.9rem;}
+  .tag{color:var(--accent); font-size:0.95rem; margin-top:0.15rem;}
+  header{border-bottom:1px solid var(--line); padding-bottom:1.5rem; margin-bottom:2rem;}
+  .login{display:flex; gap:0.6rem; flex-wrap:wrap; margin-top:1.5rem;}
+  input[type=text]{
+    flex:1; min-width:180px; padding:0.65rem 0.8rem; font-size:1rem;
+    border:1px solid var(--line); border-radius:4px; background:var(--paper-raised); color:var(--ink);
+    font-family:inherit;
+  }
+  input[type=text]:focus{outline:2px solid var(--primary); outline-offset:1px;}
+  button{
+    padding:0.65rem 1.1rem; font-size:1rem; font-family:inherit; font-weight:500;
+    background:var(--primary); color:#fff; border:none; border-radius:4px; cursor:pointer;
+  }
+  button:hover{background:var(--primary-dark);}
+  button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .error{color:#B5451B; margin-top:0.7rem; font-size:0.92rem;}
+  .hint{font-size:0.85rem; color:var(--ink); opacity:0.6; margin-top:0.6rem;}
+  section.card{margin-bottom:2.2rem; border-bottom:1px solid var(--line); padding-bottom:1.8rem;}
+  section.card:last-of-type{border-bottom:none;}
+  table{width:100%; border-collapse:collapse; font-size:0.94rem;}
+  th,td{text-align:left; padding:0.5rem 0.4rem; border-bottom:1px solid var(--line);}
+  th{font-weight:500; opacity:0.65; font-size:0.85rem;}
+  .contact-list{list-style:none; padding:0; margin:0; display:grid; gap:0.5rem;}
+  .contact-list a{color:var(--accent); text-decoration:none;}
+  .contact-list a:hover{text-decoration:underline;}
+  details summary{cursor:pointer; font-weight:500; padding:0.3rem 0;}
+  details p, details li{font-size:0.92rem; opacity:0.85;}
+  .top-row{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem;}
+  .id-pill{font-size:0.9rem; color:var(--accent); border:1px solid var(--line); padding:0.15rem 0.6rem; border-radius:20px;}
+  .switch{background:none; color:var(--accent); padding:0; font-weight:500;}
+  .switch:hover{background:none; text-decoration:underline;}
+  #dashboard{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+      <div><h1>CleanMax</h1>
+    <div class="tag">Distributor portal</div></div>
+    <a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:600;">← Main website</a>
+  </header>
+
+  <section id="login">
+    <p>Enter your distributor ID to view your account.</p>
+    <form class="login" id="loginForm">
+      <input type="text" id="idInput" placeholder="e.g. CM-D001" autocomplete="off">
+      <button type="submit">View account</button>
+    </form>
+    <div class="error" id="loginError" style="display:none;"></div>
+    <p class="hint">Don't have your ID? Contact CleanMax support below.</p>
+  </section>
+
+  <div id="dashboard">
+    <div class="top-row" style="margin-bottom:2rem;">
+      <h1 id="distName">—</h1>
+      <span class="id-pill" id="distId">—</span>
+    </div>
+
+    <section class="card" id="detailsCard">
+      <h2>Distributor details</h2>
+      <ul class="contact-list">
+        <li id="distAddress"></li>
+        <li id="distContact"></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Stock &amp; orders</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Stock on hand</th><th>Last order</th><th>Next reorder due</th></tr></thead>
+        <tbody id="stockRows"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Your pricing</h2>
+      <table>
+        <thead><tr><th>Product</th><th>MRP</th><th>Your price</th><th>Margin</th></tr></thead>
+        <tbody id="priceRows"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>Contact &amp; support</h2>
+      <ul class="contact-list">
+        <li>WhatsApp: <a href="https://wa.me/918884469933" target="_blank" rel="noopener">+91 88844 69933</a></li>
+        <li>Customer care: <a href="tel:+918884479933">+91 88844 79933</a></li>
+        <li>Email: <a href="mailto:cleanmaxindiasupport@gmail.com">cleanmaxindiasupport@gmail.com</a></li>
+        <li>Instagram: <a href="https://instagram.com/cleanmax.india" target="_blank" rel="noopener">@cleanmax.india</a></li>
+        <li>Address: F&amp;S Industries, Mangalore, Karnataka 574222</li>
+      </ul>
+    </section>
+
+    <section class="card" style="border-bottom:none;">
+      <details>
+        <summary>Terms &amp; conditions</summary>
+        <ul>
+          <li>Prices shown are for this distributor and may not be shared with other parties.</li>
+          <li>Minimum order quantity and payment terms are confirmed at the time of order.</li>
+          <li>Returns are accepted only for damaged or defective stock, reported within 7 days of delivery.</li>
+          <li>Distributor pricing is reviewed periodically and may change with notice from CleanMax.</li>
+        </ul>
+      </details>
+      <p class="hint">Sample terms — tell CleanMax your actual policy to replace this.</p>
+    </section>
+
+    <button class="switch" id="switchBtn" type="button">Look up a different ID</button>
+  </div>
+
+</div>
+
+<script>
+  // Sample distributor records — replace with real data.
+  const distributors = [
+    {
+      id: "CM-MH-0188844",
+      name: "Arpit Pardhi",
+      address: "Plot no 06, Radheshyam Nagar, Janhit Society, Jaitala Nagar, Nagpur, Maharashtra 440036",
+      contact: "+91 96374 39544",
+      stock: [],
+      pricing: []
+    },
+    {
+      id: "CM-D001",
+      name: "Rakesh Traders",
+      stock: [
+        { product: "Toilet Cleaner 500ml", qty: "48 bottles", lastOrder: "2 Sep 2026", next: "20 Sep 2026" },
+        { product: "Dishwash Liquid 500ml", qty: "30 bottles", lastOrder: "2 Sep 2026", next: "20 Sep 2026" }
+      ],
+      pricing: [
+        { product: "Toilet Cleaner 500ml", mrp: 60, price: 42 },
+        { product: "Dishwash Liquid 500ml", mrp: 65, price: 45 }
+      ]
+    },
+    {
+      id: "CM-D002",
+      name: "Shree Enterprises",
+      stock: [
+        { product: "Bathroom Cleaner", qty: "20 bottles", lastOrder: "10 Sep 2026", next: "28 Sep 2026" },
+        { product: "Floor Cleaner 2L", qty: "15 bottles", lastOrder: "10 Sep 2026", next: "28 Sep 2026" }
+      ],
+      pricing: [
+        { product: "Bathroom Cleaner", mrp: 70, price: 48 },
+        { product: "Floor Cleaner 2L", mrp: 120, price: 85 }
+      ]
+    }
+  ];
+
+  const loginForm = document.getElementById('loginForm');
+  const loginSection = document.getElementById('login');
+  const dashboard = document.getElementById('dashboard');
+  const loginError = document.getElementById('loginError');
+
+  function render(dist){
+    document.getElementById('distName').textContent = dist.name;
+    document.getElementById('distId').textContent = dist.id;
+
+    const detailsCard = document.getElementById('detailsCard');
+    if (dist.address || dist.contact){
+      detailsCard.style.display = 'block';
+      document.getElementById('distAddress').textContent = dist.address ? ('Address: ' + dist.address) : '';
+      document.getElementById('distContact').textContent = dist.contact ? ('Contact: ' + dist.contact) : '';
+    } else {
+      detailsCard.style.display = 'none';
+    }
+
+    document.getElementById('stockRows').innerHTML = dist.stock.length
+      ? dist.stock.map(r => `<tr><td>${r.product}</td><td>${r.qty}</td><td>${r.lastOrder}</td><td>${r.next}</td></tr>`).join('')
+      : '<tr><td colspan="4">No orders on file yet.</td></tr>';
+
+    document.getElementById('priceRows').innerHTML = dist.pricing.length
+      ? dist.pricing.map(r => {
+          const margin = r.mrp - r.price;
+          const pct = Math.round((margin / r.mrp) * 100);
+          return `<tr><td>${r.product}</td><td>₹${r.mrp}</td><td>₹${r.price}</td><td>₹${margin} (${pct}%)</td></tr>`;
+        }).join('')
+      : '<tr><td colspan="4">Pricing not set yet.</td></tr>';
+
+    loginSection.style.display = 'none';
+    dashboard.style.display = 'block';
+  }
+
+  loginForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const val = document.getElementById('idInput').value.trim().toLowerCase();
+    const match = distributors.find(d => d.id.toLowerCase() === val);
+    if (match){
+      loginError.style.display = 'none';
+      render(match);
+    } else {
+      loginError.textContent = "We couldn't find that distributor ID. Check it and try again, or contact support.";
+      loginError.style.display = 'block';
+    }
+  });
+
+  document.getElementById('switchBtn').addEventListener('click', function(){
+    dashboard.style.display = 'none';
+    loginSection.style.display = 'block';
+    document.getElementById('idInput').value = '';
+    document.getElementById('idInput').focus();
+  });
+</script>
+</body>
+</html>
