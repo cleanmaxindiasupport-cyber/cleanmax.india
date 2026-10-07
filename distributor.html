@@ -70,10 +70,9 @@
 <div class="wrap">
 
   <header>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
-      <div><h1>CleanMax</h1>
-    <div class="tag">Distributor portal</div></div>
-    <a href="index.html" style="color:var(--accent);text-decoration:none;font-weight:600;">← Main website</a>
+    <a href="index.html" style="font-size:.9rem;color:var(--accent);text-decoration:none;display:inline-block;margin-bottom:.8rem">← Back to CleanMax website</a>
+    <h1>CleanMax</h1>
+    <div class="tag">Distributor portal</div>
   </header>
 
   <section id="login">
@@ -109,14 +108,6 @@
     </section>
 
     <section class="card">
-      <h2>Your pricing</h2>
-      <table>
-        <thead><tr><th>Product</th><th>MRP</th><th>Your price</th><th>Margin</th></tr></thead>
-        <tbody id="priceRows"></tbody>
-      </table>
-    </section>
-
-    <section class="card">
       <h2>Contact &amp; support</h2>
       <ul class="contact-list">
         <li>WhatsApp: <a href="https://wa.me/918884469933" target="_blank" rel="noopener">+91 88844 69933</a></li>
@@ -131,10 +122,8 @@
       <details>
         <summary>Terms &amp; conditions</summary>
         <ul>
-          <li>Prices shown are for this distributor and may not be shared with other parties.</li>
-          <li>Minimum order quantity and payment terms are confirmed at the time of order.</li>
+                    <li>Minimum order quantity and payment terms are confirmed at the time of order.</li>
           <li>Returns are accepted only for damaged or defective stock, reported within 7 days of delivery.</li>
-          <li>Distributor pricing is reviewed periodically and may change with notice from CleanMax.</li>
         </ul>
       </details>
       <p class="hint">Sample terms — tell CleanMax your actual policy to replace this.</p>
@@ -153,8 +142,7 @@
       name: "Arpit Pardhi",
       address: "Plot no 06, Radheshyam Nagar, Janhit Society, Jaitala Nagar, Nagpur, Maharashtra 440036",
       contact: "+91 96374 39544",
-      stock: [],
-      pricing: []
+      stock: []
     },
     {
       id: "CM-D001",
@@ -162,10 +150,6 @@
       stock: [
         { product: "Toilet Cleaner 500ml", qty: "48 bottles", lastOrder: "2 Sep 2026", next: "20 Sep 2026" },
         { product: "Dishwash Liquid 500ml", qty: "30 bottles", lastOrder: "2 Sep 2026", next: "20 Sep 2026" }
-      ],
-      pricing: [
-        { product: "Toilet Cleaner 500ml", mrp: 60, price: 42 },
-        { product: "Dishwash Liquid 500ml", mrp: 65, price: 45 }
       ]
     },
     {
@@ -174,10 +158,6 @@
       stock: [
         { product: "Bathroom Cleaner", qty: "20 bottles", lastOrder: "10 Sep 2026", next: "28 Sep 2026" },
         { product: "Floor Cleaner 2L", qty: "15 bottles", lastOrder: "10 Sep 2026", next: "28 Sep 2026" }
-      ],
-      pricing: [
-        { product: "Bathroom Cleaner", mrp: 70, price: 48 },
-        { product: "Floor Cleaner 2L", mrp: 120, price: 85 }
       ]
     }
   ];
@@ -203,14 +183,6 @@
     document.getElementById('stockRows').innerHTML = dist.stock.length
       ? dist.stock.map(r => `<tr><td>${r.product}</td><td>${r.qty}</td><td>${r.lastOrder}</td><td>${r.next}</td></tr>`).join('')
       : '<tr><td colspan="4">No orders on file yet.</td></tr>';
-
-    document.getElementById('priceRows').innerHTML = dist.pricing.length
-      ? dist.pricing.map(r => {
-          const margin = r.mrp - r.price;
-          const pct = Math.round((margin / r.mrp) * 100);
-          return `<tr><td>${r.product}</td><td>₹${r.mrp}</td><td>₹${r.price}</td><td>₹${margin} (${pct}%)</td></tr>`;
-        }).join('')
-      : '<tr><td colspan="4">Pricing not set yet.</td></tr>';
 
     loginSection.style.display = 'none';
     dashboard.style.display = 'block';
