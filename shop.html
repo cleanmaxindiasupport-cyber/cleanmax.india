@@ -113,6 +113,12 @@ footer{text-align:center;color:var(--muted);padding:18px 16px 30px;font-size:.8r
 .cf{position:absolute;top:-10px;width:9px;height:14px;opacity:.9;animation:fall 3.2s linear infinite}@keyframes fall{to{transform:translateY(340px) rotate(540deg);opacity:0}}
 .oid{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin:14px 0 0;text-align:left;display:flex;flex-direction:column;gap:10px}.oid .r{display:flex;align-items:center;justify-content:space-between;gap:8px}.oid small{color:var(--muted);display:block}.oid b{font-size:1.05rem}.oid button{background:none;border:0;color:var(--blue);font-weight:700}
 .osum{display:flex;flex-direction:column;gap:8px;text-align:left}.osum .r{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;font-size:.88rem}.osum img{width:44px;height:44px;object-fit:contain;background:#eaf4fc;border-radius:8px}
+.or{text-align:center;color:var(--muted);margin:12px 0;font-size:.85rem}
+.sb{font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:10px;background:#e8eef5;color:#33475b;white-space:nowrap}.sb.g{background:#e6f6ec;color:var(--green)}.sb.o{background:#fff1d6;color:#8a5200}.sb.r{background:#fde2e4;color:#b00020}.sb.b{background:#e3f1ff;color:#0d47a1}
+.ordc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:var(--sh)}.ordc .top{display:flex;justify-content:space-between;align-items:center;gap:8px}.ordc .oi{font-weight:800}.ordc small{color:var(--muted)}
+.ms{display:flex;align-items:center;margin:12px 2px 6px}.ms i{width:14px;height:14px;border-radius:50%;background:#e1dccb;flex:none}.ms u{flex:1;height:3px;background:#e1dccb}.ms .d{background:var(--green)}.ms .c{background:var(--yellow);box-shadow:0 0 0 4px #ffc72c44}.ms-l{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);font-weight:600}
+.ordc .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.ordc .acts button{width:auto;padding:8px 14px;font-size:.82rem}
+.av2{width:56px;height:56px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;flex:none}
 @media(prefers-reduced-motion:reduce){.ic *,.cf,.okp .tick{animation:none!important;stroke-dashoffset:0!important}}
 @media(min-width:700px){.pgrid{grid-template-columns:repeat(3,1fr)}.hs .pc{width:190px}}
 </style>
@@ -140,7 +146,7 @@ footer{text-align:center;color:var(--muted);padding:18px 16px 30px;font-size:.8r
  <div class="strip" id="strip"></div>
  <section id="avail" style="display:none"><div class="sec"><h2>Also available on</h2></div><div class="stores" id="stores"></div></section>
  <div class="trust"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Secure Payments</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9h4l4 3v4h-8"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>Shipping Included</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0116 0v2"/><rect x="3" y="14" width="4" height="6" rx="1"/><rect x="17" y="14" width="4" height="6" rx="1"/></svg>WhatsApp Support</div></div>
- <footer><a href="index.html">Home</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="refund-shipping.html">Shipping &amp; Refunds</a><br><a href="distributor.html">Distributor Login</a> · <a href="https://www.instagram.com/cleanmax.india" target="_blank" rel="noopener">Instagram @cleanmax.india</a><br>© F&amp;S Industries · CleanMax India · 1-250 Murabail, Kalladka Post, Bantwal Taluk, Dakshina Kannada, Karnataka 574222<br>Support: +91 88844 69933 (WhatsApp) · Customer care: +91 88844 79933</footer>
+ <footer><a href="index.html">Home</a> · <a href="contact.html">Contact Us</a> · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="refund-shipping.html">Shipping &amp; Refunds</a><br><a href="https://www.instagram.com/cleanmax.india" target="_blank" rel="noopener">Instagram @cleanmax.india</a><br>© F&amp;S Industries · CleanMax India · 1-250 Murabail, Kalladka Post, Bantwal Taluk, Dakshina Kannada, Karnataka 574222<br>Support: +91 88844 69933 (WhatsApp) · Customer care: +91 88844 79933</footer>
 </section>
 
 <!-- LIST -->
@@ -174,6 +180,9 @@ footer{text-align:center;color:var(--muted);padding:18px 16px 30px;font-size:.8r
 
 <!-- PROFILE -->
 <section class="view" id="v-profile"></section>
+<section class="view" id="v-login"></section>
+<section class="view" id="v-orders"></section>
+<section class="view" id="v-address"></section>
 </main>
 
 <nav class="bnav" id="bnav">
@@ -219,13 +228,13 @@ const soldOut=p=>p.stock<=0;
 async function api(body){const r=await fetch(CONFIG.api,{method:"POST",body:JSON.stringify(body)});return r.json()}
 
 /* ---------- router ---------- */
-const VIEWS=["home","list","prod","cart","checkout","track","offers","profile"],NAVV=["home","list","offers","profile"];
+const VIEWS=["home","list","prod","cart","checkout","track","offers","profile","login","orders","address"],NAVV=["home","list","offers","profile"];
 let CUR="home",ARG=null;
 const hashFor=(v,a)=>v==="home"?"":v==="prod"?"p"+a:v;
 function go(v,a,push){
   closeMenu();CUR=v;ARG=a;
   VIEWS.forEach(x=>$("v-"+x).style.display=x===v?"block":"none");
-  ({home:rHome,list:rList,prod:rProd,cart:rCart,checkout:rCheckout,track:rTrack,offers:rOffers,profile:rProfile})[v]();
+  ({home:rHome,list:rList,prod:rProd,cart:rCart,checkout:rCheckout,track:rTrack,offers:rOffers,profile:rProfile,login:rLogin,orders:rOrders,address:rAddress})[v]();
   setHeader();$("bnav").style.display=NAVV.includes(v)?"flex":"none";
   ["home","list","offers","profile"].forEach(n=>$("n-"+n).classList.toggle("on",n===v));
   $("wafab").style.display=["prod","cart","checkout"].includes(v)?"none":"flex";
@@ -235,7 +244,7 @@ function go(v,a,push){
 }
 function back(){if(history.state&&history.state.v!=="home")history.back();else go("home",null,false)}
 window.addEventListener("popstate",e=>{const s=e.state;s?go(s.v,s.a,false):go("home",null,false)});
-const TITLES={cart:"Your Cart",checkout:"Checkout",track:"Track Order",offers:"Offers & Deals",profile:"Profile"};
+const TITLES={cart:"Your Cart",checkout:"Checkout",track:"Track Order",offers:"Offers & Deals",profile:"Profile",login:"Sign in",orders:"My Orders",address:"Address Book"};
 function listTitle(){return MODE==="wish"?"Wishlist":MODE==="deals"?"Hot Deals":LQ?"Search results":CAT==="All"?"All Products":CAT}
 function setHeader(){
   const h=$("hdr"),w=h.parentElement;w.style.display=CUR==="prod"?"none":"block";
@@ -247,7 +256,7 @@ function badges(){const n=count();document.querySelectorAll("[data-cb],#fabBd").
 function openMenu(){$("dp").innerHTML=`<img src="${LOGO}" alt=""><div class="menu">${menuItems()}</div>`;$("drawer").classList.add("open")}
 function closeMenu(){$("drawer").classList.remove("open")}
 function menuItems(){const b=(ic,t,on)=>`<button onclick="${on}">${I[ic]}${t}<span class="ch">${I.chev.replace("<svg","<svg width=18 height=18")}</span></button>`,a=(ic,t,h,ex)=>`<a href="${h}" ${ex||""}>${I[ic]}${t}<span class="ch">${I.chev.replace("<svg","<svg width=18 height=18")}</span></a>`;
- return b("home","Home","go('home')")+b("grid","All Products","openList('All')")+b("tag","Offers & Deals","go('offers')")+b("truck","Track Order","go('track')")+b("heart","Wishlist","openList('All','wish')")+a("help","Help & Support","https://wa.me/918884469933?text=Hi%20CleanMax%20India%2C%20I%20need%20help",'target="_blank" rel="noopener"')+a("pin","Contact Us","contact.html")+a("shield","Privacy Policy","privacy.html")+a("doc","Terms & Conditions","terms.html")+a("truck","Shipping & Refunds","refund-shipping.html")+a("store","Distributor Login","distributor.html")+a("insta","Instagram","https://www.instagram.com/cleanmax.india",'target="_blank" rel="noopener"')+a("home","Visit our website","index.html")}
+ return b("home","Home","go('home')")+b("grid","All Products","openList('All')")+b("tag","Offers & Deals","go('offers')")+b("truck","My Orders","go('orders')")+b("truck","Track Order","go('track')")+b("heart","Wishlist","openList('All','wish')")+a("help","Help & Support","https://wa.me/918884469933?text=Hi%20CleanMax%20India%2C%20I%20need%20help",'target="_blank" rel="noopener"')+a("pin","Contact Us","contact.html")+a("shield","Privacy Policy","privacy.html")+a("doc","Terms & Conditions","terms.html")+a("truck","Shipping & Refunds","refund-shipping.html")+a("insta","Instagram","https://www.instagram.com/cleanmax.india",'target="_blank" rel="noopener"')+a("home","Visit our website","index.html")}
 
 /* ---------- store loading ---------- */
 async function loadStore(){
@@ -332,7 +341,8 @@ function rProd(){
   <h3>Customer reviews</h3><div id="rvlist" class="rate">Loading…</div>
   <button class="btn o" style="margin-top:10px" onclick="$('rvform').style.display=$('rvform').style.display==='flex'?'none':'flex'">Write a review</button>
   <div class="rform" id="rvform" style="display:none"><small style="color:var(--muted)">Only customers who have received this product can review. Enter the Order ID and mobile number you used.</small>
-   <input id="rvo" placeholder="Order ID" autocapitalize="characters"><input id="rvp" placeholder="Mobile number" inputmode="tel">
+   ${ME?`<small>Signed in as <b>${esc(ME.email)}</b>. We will match your delivered order automatically. <a href="#" onclick="$('rvf').style.display='flex';this.style.display='none';return false">Use an Order ID instead</a></small>`:""}
+   <div id="rvf" style="display:${ME?"none":"flex"};flex-direction:column;gap:8px"><input id="rvo" placeholder="Order ID" autocapitalize="characters"><input id="rvp" placeholder="Mobile number" inputmode="tel"></div>
    <div class="starsel" id="rvs">${[1,2,3,4,5].map(n=>`<button onclick="setStar(${n})">★</button>`).join("")}</div>
    <textarea id="rvt" rows="3" placeholder="Share your experience (optional)"></textarea><div class="msg" id="rvm"></div>
    <button class="btn big" id="rvb" onclick="sendReview(${p.id})">Submit review</button></div></div>
@@ -353,10 +363,10 @@ async function loadReviews(id){
 async function sendReview(id){
   const m=$("rvm");m.textContent="";
   if(!RV)return m.textContent="Please tap a star rating.";
-  const o=$("rvo").value.trim(),ph=$("rvp").value.replace(/\D/g,"").slice(-10);
-  if(!o||ph.length!==10)return m.textContent="Enter your Order ID and 10-digit mobile number.";
+  const manual=$("rvf").style.display!=="none",o=manual?$("rvo").value.trim():"",ph=manual?$("rvp").value.replace(/\D/g,"").slice(-10):"";
+  if(manual&&(!o||ph.length!==10))return m.textContent="Enter your Order ID and 10-digit mobile number.";
   $("rvb").disabled=true;
-  try{const r=await api({action:"review",productId:id,orderId:o,phone:ph,rating:RV,text:$("rvt").value});
+  try{const r=await api({action:"review",productId:id,orderId:o,phone:ph,rating:RV,text:$("rvt").value,token:TOKEN});
     if(!r.ok)throw new Error(r.error);toast("Thank you for your review!");$("rvform").style.display="none";loadReviews(id);loadStore()}
   catch(e){m.textContent=e.message||"Could not submit review"}
   $("rvb").disabled=false;
@@ -423,10 +433,11 @@ function rCheckout(keep){
   const m=keep&&$("msg")?$("msg").textContent:"";
   let h=stepper();
   if(STEP===1){
+    h+=ME?`<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:.9rem">Signed in as <b>${esc(ME.email)}</b></span><button class="btn o" style="width:auto;padding:8px 14px" onclick="go('address')">Edit details</button></div>`:`<div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span style="font-size:.9rem">Have an account? Sign in for faster checkout.</span><button class="btn" style="width:auto;padding:8px 16px" onclick="go('login')">Sign in</button></div>`;
     h+=`<div class="card"><h3>Delivery Address</h3><div class="f">
      <input id="nm" placeholder="Full name" autocomplete="name" value="${esc(FORM.name)}" oninput="FORM.name=this.value">
      <input id="ph" placeholder="10-digit mobile number" inputmode="tel" autocomplete="tel" value="${esc(FORM.phone)}" oninput="FORM.phone=this.value">
-     <input id="em" placeholder="Email (optional)" inputmode="email" autocomplete="email" value="${esc(FORM.email)}" oninput="FORM.email=this.value">
+     <input id="em" placeholder="Email (optional)" inputmode="email" autocomplete="email" value="${esc(ME?ME.email:FORM.email)}" ${ME?"readonly":""} oninput="FORM.email=this.value">
      <textarea id="ad" rows="3" placeholder="House no, street, area, city, state" oninput="FORM.address=this.value">${esc(FORM.address)}</textarea>
      <input id="pin" placeholder="Pincode" inputmode="numeric" maxlength="6" value="${esc(FORM.pin)}" oninput="FORM.pin=this.value"></div></div>`
      +ckItems()+couponBox()+`<div class="card"><h3>Price Details</h3><div class="sums">${sumsHtml()}</div></div><div class="msg" id="msg">${esc(m)}</div>
@@ -464,7 +475,7 @@ async function placeOrder(){
   const snap=Object.entries(cart).map(([id,q])=>{const p=byId(id);return p?{title:p.title,img:imgsOf(p)[0]||"",price:p.price,qty:q}:null}).filter(Boolean);
   busy=true;btnState("Please wait…",true);
   try{
-    const r=await api({action:"create",method,customer:{name:FORM.name.trim(),phone,email:FORM.email.trim(),address:FORM.address.trim(),pincode:FORM.pin.trim()},items:cartItems(),coupon:COUPON?COUPON.code:""});
+    const r=await api({action:"create",method,customer:{name:FORM.name.trim(),phone,email:FORM.email.trim(),address:FORM.address.trim(),pincode:FORM.pin.trim()},items:cartItems(),coupon:COUPON?COUPON.code:"",token:TOKEN});
     if(!r.ok)throw new Error(r.error||"Could not place order");
     if(method==="cod"){resetBtn();return done(r.orderId,false,r.total,"",snap)}
     await loadRzp();
@@ -490,7 +501,7 @@ const ICONS={
 function overlay(html){const old=$("resv");if(old)old.remove();const d=document.createElement("div");d.id="resv";d.className="resv";d.innerHTML=html;document.body.appendChild(d);window.scrollTo(0,0)}
 function closeResult(){const d=$("resv");if(d)d.remove()}
 function showResult(kind,title,lines,info,buttons){overlay(`<div class="rbox ${kind}">${ICONS[kind]}<h2>${title}</h2>${lines.map(l=>`<p>${l}</p>`).join("")}${info&&info.length?`<div class="rinfo">${info.join("")}</div>`:""}${buttons.join("")}</div>`)}
-function resetShop(){Object.keys(cart).forEach(k=>delete cart[k]);COUPON=null;FORM.address=FORM.address;render();loadStore()}
+function resetShop(){Object.keys(cart).forEach(k=>delete cart[k]);COUPON=null;render();loadStore();if(TOKEN)loadMe()}
 function done(orderId,paid,amount,payId,snap){
   resetShop();
   const col=["#ffc72c","#1f9d55","#0b63c5","#e53935","#7e57c2"],cf=Array.from({length:22},(_,i)=>`<span class="cf" style="left:${Math.round(Math.random()*100)}%;background:${col[i%5]};animation-delay:${(Math.random()*2).toFixed(2)}s;transform:rotate(${Math.round(Math.random()*90)}deg)"></span>`).join("");
@@ -544,14 +555,98 @@ function rOffers(){
   $("v-offers").innerHTML=h;
 }
 function rProfile(){
-  const a=(ic,t,h,ex)=>`<a href="${h}" ${ex||""}>${I[ic]}${t}<span class="ch">${I.chev.replace("<svg","<svg width=18 height=18")}</span></a>`,b=(ic,t,on)=>`<button onclick="${on}">${I[ic]}${t}<span class="ch">${I.chev.replace("<svg","<svg width=18 height=18")}</span></button>`;
-  $("v-profile").innerHTML=`<div class="who"><div class="av">${I.user}</div><div><b style="font-size:1.1rem">Welcome to CleanMax</b><br><small style="color:var(--muted)">Shop without an account. Use Track Order for your orders.</small></div></div>
-  <div class="menu">${b("truck","My Orders (Track Order)","go('track')")}${b("heart","Wishlist","openList('All','wish')")}${b("tag","Offers & Coupons","go('offers')")}${a("help","Help & Support","https://wa.me/918884469933?text=Hi%20CleanMax%20India%2C%20I%20need%20help",'target="_blank" rel="noopener"')}${a("pin","Contact Us","contact.html")}${a("shield","Privacy Policy","privacy.html")}${a("doc","Terms & Conditions","terms.html")}${a("truck","Shipping & Refunds","refund-shipping.html")}${a("store","Distributor Login","distributor.html")}${a("insta","Instagram @cleanmax.india","https://www.instagram.com/cleanmax.india",'target="_blank" rel="noopener"')}${a("home","Visit our website","index.html")}</div>`;
+  const ch=I.chev.replace("<svg","<svg width=18 height=18"),a=(ic,t,h,ex)=>`<a href="${h}" ${ex||""}>${I[ic]}${t}<span class="ch">${ch}</span></a>`,b=(ic,t,on)=>`<button onclick="${on}">${I[ic]}${t}<span class="ch">${ch}</span></button>`;
+  const who=ME?`<div class="who"><div class="av2">${esc((ME.name||ME.email||"U")[0].toUpperCase())}</div><div style="min-width:0"><b style="font-size:1.1rem">${esc(ME.name||"Welcome")}</b><br><small style="color:var(--muted);word-break:break-all">${esc(ME.email)}</small></div></div>`
+   :`<div class="who"><div class="av">${I.user}</div><div style="flex:1"><b style="font-size:1.05rem">Welcome to CleanMax</b><br><small style="color:var(--muted)">Sign in to see your orders and save your address.</small></div></div><button class="btn big" style="margin-bottom:12px" onclick="go('login')">Sign in</button>`;
+  $("v-profile").innerHTML=who+`<div class="menu">${b("truck","My Orders","go('orders')")}${ME?b("pin","Address Book","go('address')"):""}${b("truck","Track an Order","go('track')")}${b("heart","Wishlist","openList('All','wish')")}${b("tag","Offers & Coupons","go('offers')")}${a("help","Help & Support","https://wa.me/918884469933?text=Hi%20CleanMax%20India%2C%20I%20need%20help",'target="_blank" rel="noopener"')}${a("pin","Contact Us","contact.html")}${a("shield","Privacy Policy","privacy.html")}${a("doc","Terms & Conditions","terms.html")}${a("truck","Shipping & Refunds","refund-shipping.html")}${a("insta","Instagram @cleanmax.india","https://www.instagram.com/cleanmax.india",'target="_blank" rel="noopener"')}${a("home","Visit our website","index.html")}${ME?`<button onclick="signOut()" style="color:var(--red)">${I.back}<span style="color:var(--red)">Logout</span></button>`:""}</div>`;
+}
+
+/* ---------- accounts: Google sign-in, email code, orders, address ---------- */
+let TOKEN="",ME=null,OTPMAIL="",ORDERS=[];
+try{TOKEN=localStorage.getItem("cm_t")||""}catch(e){}
+function setToken(t){TOKEN=t||"";try{t?localStorage.setItem("cm_t",t):localStorage.removeItem("cm_t")}catch(e){}}
+function prefillForm(){if(!ME)return;if(!FORM.name)FORM.name=ME.name||"";if(!FORM.phone)FORM.phone=ME.phone||"";if(!FORM.address)FORM.address=ME.address||"";if(!FORM.pin)FORM.pin=ME.pincode||"";FORM.email=ME.email}
+async function loadMe(){
+  if(!TOKEN)return;
+  try{const r=await api({action:"customerMe",token:TOKEN});if(r.ok){ME=r.profile;prefillForm()}else if(r.auth===false){setToken("");ME=null}}catch(e){}
+  if(CUR==="profile")rProfile();if(CUR==="checkout")rCheckout(1);
+}
+function signOut(){setToken("");ME=null;FORM.email="";toast("Signed out");rProfile()}
+const lmsg=t=>{const m=$("lmsg");if(m)m.textContent=t||""};
+function loggedIn(r){setToken(r.token);ME=r.profile;prefillForm();toast("Signed in");back()}
+function rLogin(){
+  if(ME){$("v-login").innerHTML=`<div class="empty">${I.user}<p>You are signed in as ${esc(ME.email)}.</p><button class="btn big" onclick="go('orders')">My Orders</button></div>`;return}
+  const gid=(STORE.settings||{}).googleClientId||"";
+  $("v-login").innerHTML=`<div class="card"><h3>Sign in to CleanMax</h3><p class="rate" style="margin:0 0 12px">Optional. See your orders, save your address and review products faster. You can always order without signing in.</p>
+   ${gid?`<div id="gbtn" style="display:flex;justify-content:center;min-height:44px"></div><div class="or">— or —</div>`:""}
+   <div class="f"><input id="le" type="email" placeholder="Email address" inputmode="email" autocomplete="email" value="${esc(OTPMAIL)}">
+   <button class="btn big" id="lsend" onclick="sendOtp()">Email me a code</button>
+   <div id="lstep2" style="display:${OTPMAIL?"flex":"none"};flex-direction:column;gap:10px"><input id="lc" placeholder="6-digit code" inputmode="numeric" maxlength="6" autocomplete="one-time-code"><button class="btn big y" onclick="verifyOtp()">Verify &amp; sign in</button></div>
+   <div class="msg" id="lmsg"></div></div></div>`;
+  if(gid)initGoogle(gid);
+}
+function initGoogle(gid){
+  const run=()=>{try{google.accounts.id.initialize({client_id:gid,callback:onGoogle});google.accounts.id.renderButton($("gbtn"),{theme:"outline",size:"large",width:Math.min(300,$("gbtn").clientWidth||300),text:"continue_with",shape:"pill"})}catch(e){}};
+  if(window.google&&window.google.accounts)return run();
+  const sc=document.createElement("script");sc.src="https://accounts.google.com/gsi/client";sc.async=true;sc.onload=run;document.head.appendChild(sc);
+}
+async function onGoogle(resp){lmsg("Signing in…");try{const r=await api({action:"googleLogin",credential:resp.credential});if(!r.ok)throw new Error(r.error);loggedIn(r)}catch(e){lmsg(e.message||"Google sign-in failed")}}
+async function sendOtp(){
+  const e=$("le").value.trim().toLowerCase();lmsg("");
+  if(!/^\S+@\S+\.\S+$/.test(e))return lmsg("Enter a valid email address.");
+  $("lsend").disabled=true;
+  try{const r=await api({action:"otpSend",email:e});if(!r.ok)throw new Error(r.error);OTPMAIL=e;$("lstep2").style.display="flex";lmsg("Code sent to "+e+". Check your inbox (and spam folder).");$("lc").focus()}catch(x){lmsg(x.message||"Could not send code")}
+  $("lsend").disabled=false;
+}
+async function verifyOtp(){
+  const c=$("lc").value.replace(/\D/g,"");if(c.length!==6)return lmsg("Enter the 6-digit code.");
+  try{const r=await api({action:"otpVerify",email:OTPMAIL||$("le").value.trim().toLowerCase(),code:c});if(!r.ok)throw new Error(r.error);loggedIn(r)}catch(x){lmsg(x.message||"Wrong code")}
+}
+/* My Orders */
+const SBC=s=>/DELIVERED/.test(s)?"g":/CANCEL|FAIL/.test(s)?"r":/SHIPPED|PACKED/.test(s)?"o":"b";
+async function rOrders(){
+  if(!TOKEN){$("v-orders").innerHTML=`<div class="empty">${I.user}<p>Sign in to see all your orders in one place.</p><button class="btn big" onclick="go('login')">Sign in</button><p style="margin-top:14px">Not signed in?</p><button class="btn o" onclick="go('track')">Track an order with Order ID</button></div>`;return}
+  $("v-orders").innerHTML='<p class="rate">Loading your orders…</p>';
+  try{const r=await api({action:"customerOrders",token:TOKEN});
+    if(!r.ok){if(r.auth===false){setToken("");ME=null;rOrders();return}throw new Error(r.error)}
+    ORDERS=r.orders;drawOrders();if(!ME)loadMe();
+  }catch(e){$("v-orders").innerHTML=`<p style="color:#b00020">${esc(e.message||"Could not load orders")}</p>`}
+}
+function drawOrders(){
+  const IDX={"PACKED":1,"SHIPPED":2,"DELIVERED":3},L=["Placed","Processing","Shipped","Delivered"];
+  let h=ORDERS.length?ORDERS.map((o,i)=>{const cancelled=/CANCEL/.test(o.status),idx=IDX[o.status]||0;
+    const trk=o.tracking?(/^https?:\/\//.test(o.tracking)?`<a href="${esc(o.tracking)}" target="_blank" rel="noopener">Track shipment</a>`:esc(o.tracking)):"";
+    return `<div class="ordc"><div class="top"><span class="oi">${esc(o.orderId)}</span><span class="sb ${SBC(o.status)}">${esc(o.status==="NEW"?"PLACED":o.status)}</span></div><small>${esc(o.time)} · ${o.payment==="COD"?"Cash on Delivery":"Paid online"}</small>
+     <div style="margin:8px 0;font-size:.9rem">${esc(o.items)}</div><div><b>Total ${inr(o.total)}</b></div>
+     ${cancelled?"":`<div class="ms">${L.map((_,k)=>(k?`<u class="${k<=idx?"d":""}"></u>`:"")+`<i class="${k<idx||idx===3?"d":k===idx?"c":""}"></i>`).join("")}</div><div class="ms-l">${L.map(t=>`<span>${t}</span>`).join("")}</div>`}
+     ${(o.courier||trk)?`<div style="margin-top:8px;font-size:.88rem">${o.courier?`<b>Courier:</b> ${esc(o.courier)} `:""}${trk?`<b>Tracking:</b> ${trk}`:""}</div>`:""}
+     <div class="acts"><button class="btn o" onclick="reorder(${i})">Buy again</button>${o.status==="DELIVERED"?o.ids.map(id=>byId(id)?`<button class="btn" onclick="go('prod',${id})">★ Rate ${esc(byId(id).title.split(" ").slice(0,2).join(" "))}</button>`:"").join(""):""}</div></div>`}).join(""):`<div class="empty">${I.truck}<p>No orders on this account yet.</p><button class="btn big" onclick="openList('All')">Start shopping</button></div>`;
+  h+=`<div class="card"><h3>Add an older order</h3><small style="color:var(--muted)">Placed an order before signing in? Add it with the Order ID and the mobile number you used.</small><div class="f" style="margin-top:10px"><input id="co" placeholder="Order ID" autocapitalize="characters"><input id="cp" placeholder="Mobile number" inputmode="tel"><button class="btn" onclick="claimOrder()">Add order</button><div class="msg" id="cmsg2"></div></div></div>`;
+  $("v-orders").innerHTML=h;
+}
+async function claimOrder(){
+  const o=$("co").value.trim().toUpperCase(),p=$("cp").value.replace(/\D/g,"").slice(-10),m=$("cmsg2");m.textContent="";
+  if(!o||p.length!==10)return m.textContent="Enter the Order ID and 10-digit mobile number.";
+  try{const r=await api({action:"customerClaim",token:TOKEN,orderId:o,phone:p});if(!r.ok)throw new Error(r.error);toast("Order added");rOrders()}catch(e){m.textContent=e.message||"Could not add order"}
+}
+function reorder(i){const o=ORDERS[i];let n=0;Object.entries(o.qty||{}).forEach(([id,q])=>{for(let k=0;k<q;k++){const before=cart[id]||0;add(+id,1);if((cart[id]||0)>before)n++}});toast(n?"Items added to cart":"Items are out of stock");if(n)go("cart")}
+/* Address book */
+function rAddress(){
+  if(!TOKEN){go("login",null,false);return}
+  const m=ME||{name:"",phone:"",address:"",pincode:"",email:""};
+  $("v-address").innerHTML=`<div class="card"><h3>My details</h3><small style="color:var(--muted)">Saved on your account and filled in automatically at checkout.</small><div class="f" style="margin-top:10px">
+   <input id="an" placeholder="Full name" value="${esc(m.name)}"><input id="ap" placeholder="10-digit mobile number" inputmode="tel" value="${esc(m.phone)}"><input value="${esc(m.email)}" readonly>
+   <textarea id="aa" rows="3" placeholder="House no, street, area, city, state">${esc(m.address)}</textarea><input id="az" placeholder="Pincode" inputmode="numeric" maxlength="6" value="${esc(m.pincode)}">
+   <button class="btn big" onclick="saveAddress()">Save details</button><div class="msg" id="amsg"></div></div></div>`;
+}
+async function saveAddress(){
+  const d={action:"customerSave",token:TOKEN,name:$("an").value,phone:$("ap").value,address:$("aa").value,pincode:$("az").value},m=$("amsg");m.textContent="";
+  try{const r=await api(d);if(!r.ok)throw new Error(r.error);ME=Object.assign(ME||{},{name:d.name.trim(),phone:d.phone.replace(/\D/g,"").slice(-10),address:d.address.trim(),pincode:d.pincode.replace(/\D/g,"")});FORM.name=ME.name;FORM.phone=ME.phone;FORM.address=ME.address;FORM.pin=ME.pincode;toast("Details saved")}catch(e){m.textContent=e.message||"Could not save"}
 }
 
 /* ---------- start ---------- */
 history.replaceState({v:"home",a:null},"","");
-go("home",null,false);loadStore();
+go("home",null,false);loadStore();loadMe();
 </script>
 </body>
 </html>
